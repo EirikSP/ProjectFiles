@@ -1,5 +1,5 @@
 from django.apps import AppConfig
 
 
-class SwapsiteConfig(AppConfig):
+class SwapSiteConfig(AppConfig):
     name = 'SwapSite'
