@@ -1,12 +1,20 @@
-<!DOCTYPE html>
-<html>
-<head>
+{%extends 'SwapSite/base.html'%}
 
-    <title></title>
+{% block content %}
+    <h1>Home of Swapping Website!</h1>
+    {% for userpage in UserPages %}
 
-</head>
+        <article class="media content-section">
+            <div class="media-body">
+              <div class="article-metadata">
+                <a class="mr-2" href="#">{{ userpage.Location }}</a>
+                <small class="text-muted">{{ userpage.time_posted }}</small>
+              </div>
+              <h2><a class="article-title" href="#">{{ userpage.Seller }}</a></h2>
+              <p class="article-content">{{ userpage.Item }}</p>
+              <p class="article-content">{{ userpage.Condition }}</p>
+            </div>
+        </article>
 
-<body>
-<h1>Home of Swapping Website!</h1>
-</body>
-</html>
+    {% endfor %}
+{%endblock content%}
