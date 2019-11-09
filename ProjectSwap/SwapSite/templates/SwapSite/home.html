@@ -2,17 +2,17 @@
 
 {% block content %}
     <h1>Home of Swapping Website!</h1>
-    {% for userpage in UserPages %}
+    {% for post in posts %}
 
         <article class="media content-section">
             <div class="media-body">
               <div class="article-metadata">
-                <a class="mr-2" href="#">{{ userpage.Location }}</a>
-                <small class="text-muted">{{ userpage.time_posted }}</small>
+                <a class="mr-2" href="{% url 'Profile-Page' %}">{{ post.seller }}</a>
+                <small class="text-muted">{{ post.date_posted|date:'F d, Y' }}</small>
               </div>
-              <h2><a class="article-title" href="#">{{ userpage.Seller }}</a></h2>
-              <p class="article-content">{{ userpage.Item }}</p>
-              <p class="article-content">{{ userpage.Condition }}</p>
+              <h2><a class="article-title" href="#">{{ post.item }}</a></h2>
+              <!-- <p class="article-content">{{ post.item }}</p> -->
+              <p class="article-content">{{ post.condition }}</p>
             </div>
         </article>
 
