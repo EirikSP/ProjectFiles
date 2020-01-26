@@ -1,0 +1,17 @@
+{%extends 'SwapSite/base.html'%}
+
+{% block content %}
+    <h1>Home of Swapping Website!</h1>
+        <article class="media content-section">
+            <img class="rounded-circle article-img" src="{{ object.seller.profile.image.url }}" alt="">
+            <div class="media-body">
+              <div class="article-metadata">
+                <a class="mr-2" href="#">{{ object.seller }}</a>
+                <small class="text-muted">{{ object.date_posted|date:'F d, Y' }}</small>
+              </div>
+              <h2 class="article-title">{{ object.item }}</h2>
+              <!-- <p class="article-content">{{ post.item }}</p> -->
+              <p class="article-content">{{ object.condition }}</p>
+            </div>
+        </article>
+{%endblock content%}
