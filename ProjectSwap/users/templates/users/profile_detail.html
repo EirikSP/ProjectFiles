@@ -1,0 +1,41 @@
+{%extends 'SwapSite/base.html'%}
+{% block content %}
+    <div class="content-section">
+
+
+        <div class="media">
+          <img class="rounded-circle account-img" src="{{ object.seller.profile.image.url }}">
+          <div class="media-body">
+            <h2 class="account-heading">{{object.seller.username}}</h2>
+            <p class="text-secondary">{{object.seller.email}}</p>
+          </div>
+        </div>
+
+        <form method="POST" enctype="multipart/form-data">
+            <legend class='border-bottom mb-4'>Profile Info</legend>
+            <p>Full Name: {{object.seller.first_name}} {{object.seller.last_name}}</p>
+            <p>Email: {{object.seller.email}}</p>
+            <p>Username: {{object.seller.username}}</p>
+        </form>
+      </div>
+
+      <div>
+    <h2>Posts</h2>
+    {% for post in posts %}
+        {% if post.seller == object.seller %}
+            <article class="media content-section">
+                <img class="rounded-circle article-img" src="{{ post.seller.profile.image.url }}" alt="">
+                <div class="media-body">
+                  <div class="article-metadata">
+                    <a class="mr-2" href="{% url 'profile-detail' post.id %}">{{ post.seller }}</a>
+                    <small class="text-muted">{{ post.date_posted|date:'F d, Y' }}</small>
+                  </div>
+                  <h2><a class="article-title" href="{% url 'post-detail' post.id  %}" >{{ post.item }}</a></h2>
+                  <!-- <p class="article-content">{{ post.item }}</p> -->
+                  <p class="article-content">{{ post.condition }}</p>
+                </div>
+            </article>
+            {% endif %}
+        {% endfor %}
+      </div>
+{%endblock content%}
