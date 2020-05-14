@@ -4,6 +4,7 @@ from django.contrib.auth.decorators import login_required
 from .forms import UserRegisterForm, UserUpdateForm, ProfileUpdateForm
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 from SwapSite.models import Post
+from users.models import User
 
 
 def register(request):
@@ -44,8 +45,21 @@ def profile(request):
 
 
 
+# class profile_pageDetailView(DetailView):
+#     model = Post
+    
+#     template_name = 'users/profile_detail.html'
+
+#     def get_context_data(self, **kwargs):
+#         # Call the base implementation first to get a context
+#         context = super().get_context_data(**kwargs)
+#         # Add in a QuerySet of all the books
+#         context['posts'] = Post.objects.all()
+#         return context
+
+
 class profile_pageDetailView(DetailView):
-    model = Post
+    model = User
     
     template_name = 'users/profile_detail.html'
 

@@ -4,25 +4,25 @@
 
 
         <div class="media">
-          <img class="rounded-circle account-img" src="{{ object.seller.profile.image.url }}">
+          <img class="rounded-circle account-img" src="{{ object.profile.image.url }}">
           <div class="media-body">
-            <h2 class="account-heading">{{object.seller.username}}</h2>
-            <p class="text-secondary">{{object.seller.email}}</p>
+            <h2 class="account-heading">{{object.username}}</h2>
+            <p class="text-secondary">{{object.email}}</p>
           </div>
         </div>
 
         <form method="POST" enctype="multipart/form-data">
             <legend class='border-bottom mb-4'>Profile Info</legend>
-            <p>Full Name: {{object.seller.first_name}} {{object.seller.last_name}}</p>
-            <p>Email: {{object.seller.email}}</p>
-            <p>Username: {{object.seller.username}}</p>
+            <p>Full Name: {{object.first_name}} {{object.last_name}}</p>
+            <p>Email: {{object.email}}</p>
+            <p>Username: {{object.username}}</p>
         </form>
       </div>
 
       <div>
     <h2>Posts</h2>
     {% for post in posts %}
-        {% if post.seller == object.seller %}
+        {% if post.seller == object %}
             <article class="media content-section">
                 <img class="rounded-circle article-img" src="{{ post.seller.profile.image.url }}" alt="">
                 <div class="media-body">
